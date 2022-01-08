@@ -17,6 +17,8 @@ time, mark, audio, video {
   font-size: 14px;
   font: inherit;
   vertical-align: baseline;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 /* HTML5 display-role reset for older browsers */
@@ -46,4 +48,203 @@ q:before, q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+header {
+  background-color: transparent;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 10px;
+  position: relative;
+}
+header .header__left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 5px;
+}
+header .header__left .hamburger {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 3px;
+  cursor: pointer;
+}
+header .header__left .hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: #000;
+}
+header .header__left form input {
+  padding: 5px;
+  border-radius: 10px;
+  border: 1px solid #31231E;
+}
+header .header__left form button {
+  border-radius: 50%;
+  background-color: #fafafa;
+  padding: 5px;
+  border: 1px solid #31231E;
+  cursor: pointer;
+}
+header .header__right .logo {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: lightblue;
+}
+header .sidebar {
+  display: none;
+}
+header .sidebar.active {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 2.5em;
+  width: 10em;
+  height: 15em;
+  padding: 10px;
+  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+header .sidebar.active ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 1em;
+}
+header .sidebar.active ul li {
+  font-family: "Work Sans", sans-serif;
+  color: #31231E;
+  font-size: 1em;
+  cursor: pointer;
+}
+header .sidebar.active .socMedContainer {
+  margin-top: 1em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1em;
+}
+header .sidebar.active .socMedContainer ion-icon {
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+main .map {
+  width: 100%;
+  height: 80vh;
+  background-color: #fafafa;
+}
+main .dayFilter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0 auto;
+  position: relative;
+  bottom: 3em;
+  max-width: 50em;
+}
+main .dayFilter .day__item {
+  width: 100%;
+  background-color: transparent;
+  text-align: center;
+  padding: 10px;
+  font-family: "Work Sans", sans-serif;
+  color: #31231E;
+  cursor: pointer;
+}
+main .information {
+  padding: 10px;
+}
+main .information h1 {
+  font-size: 1.5em;
+  text-align: center;
+}
+main .information h1, main .information p {
+  font-family: "Work Sans", sans-serif;
+  color: #31231E;
+}
+main .information .infoContainer {
+  margin-top: 1em;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1em 1fr;
+  grid-template-columns: repeat(2, 1fr);
+  -ms-grid-rows: 1fr 1em 1fr 1em 1fr 1em 1fr;
+  grid-template-rows: repeat(4, 1fr);
+  gap: 1em;
+  font-size: 12px;
+}
+main .information .infoContainer > *:nth-child(1) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+}
+main .information .infoContainer > *:nth-child(2) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+}
+main .information .infoContainer > *:nth-child(3) {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+}
+main .information .infoContainer > *:nth-child(4) {
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
+}
+main .information .infoContainer > *:nth-child(5) {
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
+}
+main .information .infoContainer > *:nth-child(6) {
+  -ms-grid-row: 5;
+  -ms-grid-column: 3;
+}
+main .information .infoContainer > *:nth-child(7) {
+  -ms-grid-row: 7;
+  -ms-grid-column: 1;
+}
+main .information .infoContainer > *:nth-child(8) {
+  -ms-grid-row: 7;
+  -ms-grid-column: 3;
+}
+
+footer {
+  background-color: #230534;
+  padding: 10px;
+  color: #fff;
+  font-family: "Work Sans", sans-serif;
 }
