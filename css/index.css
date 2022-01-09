@@ -161,7 +161,7 @@ header .sidebar.active .socMedContainer ion-icon {
   cursor: pointer;
 }
 
-main .map {
+main #map {
   width: 100%;
   height: 80vh;
   background-color: #fafafa;

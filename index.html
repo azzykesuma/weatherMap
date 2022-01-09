@@ -10,10 +10,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;700&display=swap" rel="stylesheet">
     <!-- style -->
     <link rel="stylesheet" href="./css/index.css">
-    <!-- mapbox -->
-    <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
+    <!-- mapbox CSS-->
+    
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet' />
-
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
+    
     <title>WeatherMap</title>
 </head>
 <body>
@@ -49,7 +50,7 @@
         </div>
     </header>
     <main>
-        <div class="map" id="map"></div>
+        <div id="map"></div>
         <div class="dayFilter">
             <div class="day__item">Day 1</div>
             <div class="day__item">Day 2</div>
@@ -58,29 +59,18 @@
         <div class="information">
             <h1>City information</h1>
             <div class="infoContainer">
-                <p>City Name : <span id="city">Balaraja</span></p>
-                <p>Temperature : <span id="city">29c</span></p>
-                <p>Humidity : <span id="city">10%</span></p>
-                <p>Wind Speed : <span id="city">100km/hour</span></p>
-                <p>Country : <span id="city">Indonesia</span></p>
+                <p>City Name : <span id="city"></span></p>
+                <p>Temperature : <span id="temp"></span></p>
+                <p>Humidity : <span id="humid"></span></p>
+                <p>Wind Speed : <span id="wind"></span></p>
+                <p>Country : <span id="country"></span></p>
             </div>
         </div>
     </main>
     <footer>
         @Copyright WeatherMap by AzzyKesuma
     </footer>
-    <script  src="./index.js"></script>
+    <script src="./index.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <!-- mapbox -->
-    <script>
-        mapboxgl.accessToken = 'pk.eyJ1IjoiYXp6eTMwIiwiYSI6ImNrdGVhM2txYjJubDYycHI1aDI2MHFzb24ifQ.WjQZSwT3Br9y0Q0-MtOFww';
-        const map = new mapboxgl.Map({
-            container: 'map', // container ID
-            style: 'mapbox://styles/mapbox/streets-v11', // style URL
-            center: [107, -6], // starting position [lng, lat]
-            zoom: 3 // starting zoom
-        });
-    </script>
 </body>
 </html>
