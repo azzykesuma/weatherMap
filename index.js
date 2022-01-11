@@ -40,6 +40,10 @@ const day__item = document.querySelectorAll('.day__item');
 day__item.forEach(item => {
     item.addEventListener('click', e => {
         const city = document.getElementById('city');
+        const temp = document.getElementById('temp');
+        const humidity = document.getElementById('humid');
+        const wind = document.getElementById('wind');
+        const country = document.getElementById('country');
         const target = e.target;
         if (target.id === 'dayOne') {
             fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${city.innerHTML}&cnt=1&units=metric&appid=${apiKey}`)
@@ -49,11 +53,85 @@ day__item.forEach(item => {
             })
             .then(data => {
                 // change inner HTML of respective indicators
+                console.log(data);
+                city.innerHTML = `${data.city.name}`;
+                temp.innerHTML = `${data.list[0].main.temp} celcius`;
+                humidity.innerHTML = `${data.list[0].main.humidity} degrees`;
+                wind.innerHTML = `${data.list[0].wind.speed}`;
+                country.innerHTML = `${data.city.country}`;
+            })
+            .catch(error => console.log(error));
+        } else if(target.id === 'dayTwo') {
+            fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${city.innerHTML}&cnt=2&units=metric&appid=${apiKey}`)
+            .then(response => {
+                console.log(`Response :`, response);
+                return response.json();
+            })
+            .then(data => {
+                // change inner HTML of respective indicators
+                console.log(data);
+                city.innerHTML = `${data.city.name}`;
+                temp.innerHTML = `${data.list[1].main.temp} celcius`;
+                humidity.innerHTML = `${data.list[1].main.humidity} degrees`;
+                wind.innerHTML = `${data.list[1].wind.speed}`;
+                country.innerHTML = `${data.city.country}`;
+            })
+            .catch(error => console.log(error));
+        } else if(target.id === 'dayThree') {
+            fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${city.innerHTML}&cnt=3&units=metric&appid=${apiKey}`)
+            .then(response => {
+                console.log(`Response :`, response);
+                return response.json();
+            })
+            .then(data => {
+                // change inner HTML of respective indicators
+                console.log(data);
+                city.innerHTML = `${data.city.name}`;
+                temp.innerHTML = `${data.list[2].main.temp} celcius`;
+                humidity.innerHTML = `${data.list[2].main.humidity} degrees`;
+                wind.innerHTML = `${data.list[2].wind.speed}`;
+                country.innerHTML = `${data.city.country}`;
             })
             .catch(error => console.log(error));
         }
     })
 })
+
+// searchbar function
+const searchCity = document.getElementById('searchCity');
+const submitCity = document.getElementById('submitCity');
+
+submitCity.addEventListener('click', e => {
+    e.preventDefault();
+    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${searchCity.value}&units=metric&appid=${apiKey}`)
+    .then(response => {
+        console.log(`Response :`, response);
+        return response.json();
+    })
+    .then(data => {
+        // adding data to the HTML
+        const city = document.getElementById('city');
+        const temp = document.getElementById('temp');
+        const humidity = document.getElementById('humid');
+        const wind = document.getElementById('wind');
+        const country = document.getElementById('country');
+
+        city.innerHTML = `${data.name}`;
+        temp.innerHTML = `${data.main.temp} celcius`;
+        humidity.innerHTML = `${data.main.humidity} degrees`;
+        wind.innerHTML = `${data.wind.speed}`;
+        country.innerHTML = `${data.sys.country}`;
+    })
+    .catch(err => console.log(err));
+})
+
+// incrementing date 
+const date = new Date();
+dayOne.innerHTML = new Date(date.getTime() + 1000*60*60*24).toDateString();
+dayTwo.innerHTML = new Date(date.getTime() + 2000*60*60*24).toDateString();
+dayThree.innerHTML = new Date(date.getTime() + 3000*60*60*24).toDateString();
+
+
 
 
 // showing sidebar

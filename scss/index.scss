@@ -60,6 +60,7 @@ header {
 	.sidebar.active {
 		display: block;
 		position: absolute;
+		z-index: 999;
 		left : 0;
 		top : 2.5em;
 		width : 10em;
