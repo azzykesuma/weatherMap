@@ -132,11 +132,34 @@ dayTwo.innerHTML = new Date(date.getTime() + 2000*60*60*24).toDateString();
 dayThree.innerHTML = new Date(date.getTime() + 3000*60*60*24).toDateString();
 
 
-
-
 // showing sidebar
 const hamburger = document.querySelector('.hamburger');
 const sidebar = document.querySelector('.sidebar');
 hamburger.addEventListener('click', () => {
     sidebar.classList.toggle('active');
 });
+
+// feedback function
+const feedback = document.getElementById('feedback');
+feedback.addEventListener('click', () => {
+    prompt('Enter your feedback');
+})
+
+// about function
+const about = document.getElementById('about');
+about.addEventListener('click', () => {
+    alert('This is a weather app made by Azzy Kesuma for the purpose of portofolio');
+})
+
+// email and call function
+const email = document.getElementById('email');
+const call = document.getElementById('call');
+
+email.addEventListener('click', () => {
+    window.location.href = 'mailto:official.azzy@gmail.com';
+})
+
+call.addEventListener('click', () => {
+    alert('You can call me on +62 85866195626');
+})
+
