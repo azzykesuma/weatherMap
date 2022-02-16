@@ -7,6 +7,15 @@ style: 'mapbox://styles/mapbox/streets-v11',
 center: [106, -6], 
 zoom: 2 
 });
+
+const geocoder = new MapboxGeocoder({
+    accessToken : mapboxgl.accessToken,
+    marker : {
+        color : 'orange'
+    },
+    mapboxgl : mapboxgl
+})
+map.addControl(geocoder);
 // adding event listener to the map
 map.on('click', e => {
     fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${e.lngLat.lat}&lon=${e.lngLat.lng}&units=metric&appid=${apiKey}`)
@@ -21,6 +30,7 @@ map.on('click', e => {
         const humidity = document.getElementById('humid');
         const wind = document.getElementById('wind');
         const country = document.getElementById('country');
+        
 
         city.innerHTML = `${data.name}`;
         temp.innerHTML = `${data.main.temp} celcius`;

@@ -167,6 +167,10 @@ main #map {
   height: 80vh;
   background-color: #fafafa;
 }
+main #geocoder-container > div {
+  min-width: 50%;
+  margin-left: 25%;
+}
 main .dayFilter {
   display: -webkit-box;
   display: -ms-flexbox;
