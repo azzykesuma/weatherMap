@@ -14,8 +14,15 @@ const geocoder = new MapboxGeocoder({
         color : 'orange'
     },
     mapboxgl : mapboxgl
-})
+});
 map.addControl(geocoder);
+
+const weatherData = (geocoder) => {
+    fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${geocoder}.json?access_token=pk.eyJ1IjoiYXp6eTMwIiwiYSI6ImNrdGVhM2txYjJubDYycHI1aDI2MHFzb24ifQ.WjQZSwT3Br9y0Q0-MtOFww`)
+    .then(res => res.json())
+    .then(data => {console.log(data.query)})
+    .catch(err => console.log(err))
+}
 // adding event listener to the map
 map.on('click', e => {
     fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${e.lngLat.lat}&lon=${e.lngLat.lng}&units=metric&appid=${apiKey}`)
@@ -107,34 +114,6 @@ day__item.forEach(item => {
     })
 })
 
-// searchbar function
-const searchCity = document.getElementById('searchCity');
-const submitCity = document.getElementById('submitCity');
-
-submitCity.addEventListener('click', e => {
-    e.preventDefault();
-    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${searchCity.value}&units=metric&appid=${apiKey}`)
-    .then(response => {
-        console.log(`Response :`, response);
-        return response.json();
-    })
-    .then(data => {
-        // adding data to the HTML
-        const city = document.getElementById('city');
-        const temp = document.getElementById('temp');
-        const humidity = document.getElementById('humid');
-        const wind = document.getElementById('wind');
-        const country = document.getElementById('country');
-
-        city.innerHTML = `${data.name}`;
-        temp.innerHTML = `${data.main.temp} celcius`;
-        humidity.innerHTML = `${data.main.humidity} degrees`;
-        wind.innerHTML = `${data.wind.speed}`;
-        country.innerHTML = `${data.sys.country}`;
-    })
-    .catch(err => console.log(err));
-})
-
 // incrementing date 
 const date = new Date();
 dayOne.innerHTML = new Date(date.getTime() + 1000*60*60*24).toDateString();
@@ -145,9 +124,13 @@ dayThree.innerHTML = new Date(date.getTime() + 3000*60*60*24).toDateString();
 // showing sidebar
 const hamburger = document.querySelector('.hamburger');
 const sidebar = document.querySelector('.sidebar');
+const close = document.getElementById('close');
 hamburger.addEventListener('click', () => {
-    sidebar.classList.toggle('active');
+    sidebar.classList.add('active');
 });
+close.addEventListener('click', () => {
+    sidebar.classList.remove('active');
+})
 
 // feedback function
 const feedback = document.getElementById('feedback');

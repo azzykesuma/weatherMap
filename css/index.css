@@ -68,7 +68,6 @@ header .header__left {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 5px;
 }
 header .header__left .hamburger {
   display: -webkit-box;
@@ -86,35 +85,30 @@ header .header__left .hamburger div {
   height: 3px;
   background-color: #000;
 }
-header .header__left form input {
-  padding: 5px;
-  border-radius: 10px;
-  border: 1px solid #31231E;
-}
-header .header__left form button {
+header .header__right img {
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  background-color: #fafafa;
-  padding: 5px;
-  border: 1px solid #31231E;
-  cursor: pointer;
 }
-header .header__right .logo {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background-color: lightblue;
-}
-header .sidebar {
+
+.sidebar {
   display: none;
 }
-header .sidebar.active {
+.sidebar #close {
+  position: relative;
+  right: 2em;
+  cursor: pointer;
+  font-size: 2em;
+}
+
+.sidebar.active {
   display: block;
-  position: absolute;
+  position: fixed;
   z-index: 999;
   left: 0;
-  top: 2.5em;
+  top: 0;
   width: 10em;
-  height: 15em;
+  height: 50%;
   padding: 10px;
   background-color: #fff;
   display: -webkit-box;
@@ -127,11 +121,9 @@ header .sidebar.active {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
 }
-header .sidebar.active ul {
+.sidebar.active ul {
+  margin-top: 5em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -144,20 +136,20 @@ header .sidebar.active ul {
           justify-content: center;
   gap: 1em;
 }
-header .sidebar.active ul li {
+.sidebar.active ul li {
   font-family: "Work Sans", sans-serif;
   color: #31231E;
   font-size: 1em;
   cursor: pointer;
 }
-header .sidebar.active .socMedContainer {
+.sidebar.active .socMedContainer {
   margin-top: 1em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   gap: 1em;
 }
-header .sidebar.active .socMedContainer ion-icon {
+.sidebar.active .socMedContainer ion-icon {
   font-size: 1.5em;
   cursor: pointer;
 }

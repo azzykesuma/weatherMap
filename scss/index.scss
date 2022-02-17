@@ -10,90 +10,80 @@ header {
 	position: relative;
 
 	.header__left {
-		display : flex;
-		align-items : center;
-		gap : 5px;
+		display: flex;
+		align-items: center;
 
 		.hamburger {
 			display : flex;
 			flex-direction: column;
 			gap : 3px;
 			cursor: pointer;
+
 			div {
 				width: 25px;
 				height: 3px;
 				background-color: #000;
 			}
 		}
-		form {
-
-			input {
-				padding : 5px;
-				border-radius: 10px;
-				border : 1px solid $font_color;
-			}
-
-			button {
-				border-radius: 50%;
-				background-color: #fafafa;
-				padding : 5px;
-				border : 1px solid $font_color;
-				cursor: pointer;
-			}
-		}
 	}
 
 	.header__right {
 
-		.logo {
-			width : 30px;
-			height : 30px;
+		img {
+			width : 50px;
+			height : 50px;
 			border-radius: 50%;
-			background-color: lightblue;
 		}
 	}
 
-	.sidebar {
-		display: none;
-	}
+}
+.sidebar {
+	display: none;
 
-	.sidebar.active {
-		display: block;
-		position: absolute;
-		z-index: 999;
-		left : 0;
-		top : 2.5em;
-		width : 10em;
-		height : 15em;
-		padding : $padding;
-		background-color: #fff;
+	#close {
+		position : relative;
+		right : 2em;
+		cursor: pointer;
+		font-size: 2em;
+	}
+}
+
+.sidebar.active {
+	display: block;
+	position: fixed;
+	z-index: 999;
+	left : 0;
+	top : 0;
+	width : 10em;
+	height : 50%;
+	padding : $padding;
+	background-color: #fff;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	ul {
+		margin-top: 5em;
 		display: flex;
 		flex-direction: column;
-		align-items: center;
 		justify-content: center;
+		gap : 1em;
 
-		ul {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			gap : 1em;
+		li {
+			font-family: $main_font;
+			color : $font_color;
+			font-size : 1em;
+			cursor: pointer;
+		}	
+	} 
+	.socMedContainer {
+		margin-top: 1em;
+		display: flex;
+		gap : 1em;
 
-			li {
-				font-family: $main_font;
-				color : $font_color;
-				font-size : 1em;
-				cursor: pointer;
-			}	
-		} 
-		.socMedContainer {
-			margin-top: 1em;
-			display: flex;
-			gap : 1em;
-
-			ion-icon {
-				font-size: 1.5em;
-				cursor: pointer;
-			}
+		ion-icon {
+			font-size: 1.5em;
+			cursor: pointer;
 		}
 	}
 }
