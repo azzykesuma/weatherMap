@@ -150,6 +150,13 @@ function showAbout() {
 about.addEventListener('click', showAbout);
 aboutTablet.addEventListener('click', showAbout);
 
+// contact tablet function
+const contactTablet = document.getElementById('contact');
+contactTablet.addEventListener('click', () => {
+    const hiddenContact = document.querySelector('.hiddenContact')
+    hiddenContact.classList.toggle('active');
+})
+
 
 // email and call function
 const email = document.getElementById('email');

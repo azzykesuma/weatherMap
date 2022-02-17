@@ -122,15 +122,20 @@ header {
 }
 
 .hiddenContact {
+	display: none;
+	gap : .8em;
 	position: absolute;
 	top : 4.5em;
-	left : 16.5em;
+	left : 16.2em;
 	z-index: 999;
 
 	ion-icon {
 		font-size: 1.5em;
 		cursor: pointer;
 	}
+}
+.hiddenContact.active {
+	display: flex;
 }
 
 
@@ -190,7 +195,11 @@ main {
 		}
 
 		p {
-			font-size: 1.5em;
+			font-size: 1.2em;
+			
+			@include mQ($tablet) {
+				font-size: 1.5em;
+			}
 		}
 	}
 }

@@ -195,14 +195,22 @@ header .header__right img {
 }
 
 .hiddenContact {
+  display: none;
+  gap: 0.8em;
   position: absolute;
   top: 4.5em;
-  left: 16.5em;
+  left: 16.2em;
   z-index: 999;
 }
 .hiddenContact ion-icon {
   font-size: 1.5em;
   cursor: pointer;
+}
+
+.hiddenContact.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 main #map {
@@ -290,7 +298,12 @@ main .information .infoContainer > *:nth-child(8) {
   -ms-grid-column: 3;
 }
 main .information p {
-  font-size: 1.5em;
+  font-size: 1.2em;
+}
+@media screen and (min-width: 768px) {
+  main .information p {
+    font-size: 1.5em;
+  }
 }
 
 footer {
