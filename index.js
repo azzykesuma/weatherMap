@@ -37,6 +37,7 @@ map.on('click', e => {
         const humidity = document.getElementById('humid');
         const wind = document.getElementById('wind');
         const country = document.getElementById('country');
+        const weather = document.getElementById('weather')
         
 
         city.innerHTML = `${data.name}`;
@@ -44,6 +45,7 @@ map.on('click', e => {
         humidity.innerHTML = `${data.main.humidity} degrees`;
         wind.innerHTML = `${data.wind.speed}`;
         country.innerHTML = `${data.sys.country}`;
+        weather.innerHTML = `${data.weather[0].main}`;
     })
     .catch(error => console.log(error));
 })
@@ -140,9 +142,14 @@ feedback.addEventListener('click', () => {
 
 // about function
 const about = document.getElementById('about');
-about.addEventListener('click', () => {
-    alert('This is a weather app made by Azzy Kesuma for the purpose of portofolio');
-})
+const aboutTablet = document.getElementById('aboutTablet');
+
+function showAbout() {
+    alert('This is a weather app made by Azzy Kesuma for the purpose of portofolio')
+}
+about.addEventListener('click', showAbout);
+aboutTablet.addEventListener('click', showAbout);
+
 
 // email and call function
 const email = document.getElementById('email');

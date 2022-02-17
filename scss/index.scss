@@ -5,6 +5,7 @@
 header {
 	background-color: transparent;
 	display: flex;
+	align-items: center;
 	justify-content: space-between;
 	padding : $padding;
 	position: relative;
@@ -24,6 +25,33 @@ header {
 				height: 3px;
 				background-color: #000;
 			}
+
+			@include mQ($tablet) {
+				display: none;
+			}
+		}
+		.tabletNav {
+			display: none;
+			ul {
+				display: flex;
+				align-items: center;
+				gap : 1em;
+			}
+
+			li {
+				font-family: $main_font;
+				font-size: 1.3em;
+				cursor: pointer;
+			}
+
+			a {
+				color: $font_color;
+				text-decoration: none;
+			}
+	
+			@include mQ($tablet) {
+				display: block;
+			}
 		}
 	}
 
@@ -33,6 +61,11 @@ header {
 			width : 50px;
 			height : 50px;
 			border-radius: 50%;
+
+			@include mQ($tablet) {
+				width : 80px;
+				height : 80px;
+			}
 		}
 	}
 
@@ -88,6 +121,20 @@ header {
 	}
 }
 
+.hiddenContact {
+	position: absolute;
+	top : 4.5em;
+	left : 16.5em;
+	z-index: 999;
+
+	ion-icon {
+		font-size: 1.5em;
+		cursor: pointer;
+	}
+}
+
+
+
 main {
 
 	#map {
@@ -140,6 +187,10 @@ main {
 			grid-template-rows: repeat(4, 1fr);
 			gap : 1em;
 			font-size: 12px;
+		}
+
+		p {
+			font-size: 1.5em;
 		}
 	}
 }

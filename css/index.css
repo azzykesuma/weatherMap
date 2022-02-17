@@ -55,6 +55,9 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -85,10 +88,47 @@ header .header__left .hamburger div {
   height: 3px;
   background-color: #000;
 }
+@media screen and (min-width: 768px) {
+  header .header__left .hamburger {
+    display: none;
+  }
+}
+header .header__left .tabletNav {
+  display: none;
+}
+header .header__left .tabletNav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1em;
+}
+header .header__left .tabletNav li {
+  font-family: "Work Sans", sans-serif;
+  font-size: 1.3em;
+  cursor: pointer;
+}
+header .header__left .tabletNav a {
+  color: #31231E;
+  text-decoration: none;
+}
+@media screen and (min-width: 768px) {
+  header .header__left .tabletNav {
+    display: block;
+  }
+}
 header .header__right img {
   width: 50px;
   height: 50px;
   border-radius: 50%;
+}
+@media screen and (min-width: 768px) {
+  header .header__right img {
+    width: 80px;
+    height: 80px;
+  }
 }
 
 .sidebar {
@@ -150,6 +190,17 @@ header .header__right img {
   gap: 1em;
 }
 .sidebar.active .socMedContainer ion-icon {
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.hiddenContact {
+  position: absolute;
+  top: 4.5em;
+  left: 16.5em;
+  z-index: 999;
+}
+.hiddenContact ion-icon {
   font-size: 1.5em;
   cursor: pointer;
 }
@@ -237,6 +288,9 @@ main .information .infoContainer > *:nth-child(7) {
 main .information .infoContainer > *:nth-child(8) {
   -ms-grid-row: 7;
   -ms-grid-column: 3;
+}
+main .information p {
+  font-size: 1.5em;
 }
 
 footer {
