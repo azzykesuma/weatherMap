@@ -25,7 +25,7 @@ const weatherData = (geocoder) => {
 }
 // adding event listener to the map
 map.on('click', e => {
-    fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${e.lngLat.lat}&lon=${e.lngLat.lng}&units=metric&appid=${apiKey}`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${e.lngLat.lat}&lon=${e.lngLat.lng}&units=metric&appid=${apiKey}`)
     .then(response => {
         console.log(`Response :`, response);
         return response.json();
